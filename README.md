@@ -1,3 +1,6 @@
+<img width="2858" height="1342" alt="te1" src="https://github.com/user-attachments/assets/e569b38a-25e8-4d17-a4f0-393d307ec231" />
+<img width="453" height="923" alt="te2" src="https://github.com/user-attachments/assets/6faa3f3a-313e-4d33-84e5-d238510907a7" />
+
 # RemoteTeamTest
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.0.4.
