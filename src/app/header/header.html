@@ -1,0 +1,102 @@
+<div class="page" [class.page_search-open]="isSearchOpen">
+  <div class="mock">
+    <header class="header">
+      <a class="logo" href="/">
+        <img src="https://tile.expert/img/topMenu/hdLogo.svg?2" alt="Tile Expert" />
+      </a>
+
+      <nav class="nav">
+        <a href="#"><fa-icon [icon]="faLink"></fa-icon> Ссылки</a>
+        <a href="#"><fa-icon [icon]="faUsers"></fa-icon> Контакты</a>
+        <a href="#"><fa-icon [icon]="faHashtag"></fa-icon> Теги</a>
+        <a href="#"><fa-icon [icon]="faStar"></fa-icon> Избранное</a>
+        <a href="#"><fa-icon [icon]="faClockRotateLeft"></fa-icon> Посещения</a>
+      </nav>
+
+      <button
+        class="icon-btn search-btn"
+        type="button"
+        (click)="openSearch(); $event.stopPropagation()"
+      >
+        <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+
+      <button class="icon-btn plus-btn" type="button">
+        <fa-icon [icon]="faCirclePlus"></fa-icon>
+      </button>
+
+      <button class="icon-btn notification" type="button">
+        <fa-icon [icon]="faBell"></fa-icon>
+        <span>32</span>
+      </button>
+
+      <div class="avatar"></div>
+
+      <div
+        class="search-overlay"
+        [class.search-overlay_open]="isSearchOpen"
+        (click)="$event.stopPropagation()"
+      >
+        <input type="text" placeholder="Поисковый запрос" (focus)="openSearch()" />
+      </div>
+    </header>
+
+    <section class="desktop-filters" *ngIf="isSearchOpen" (click)="$event.stopPropagation()">
+      <ng-container *ngTemplateOutlet="filters"></ng-container>
+    </section>
+
+    <div *ngIf="isSearchOpen" class="page-overlay" (click)="closeSearch()"></div>
+  </div>
+
+  <section class="mobile-search">
+    <div class="mobile-search__top">
+      <button class="back-btn" type="button" (click)="closeSearch()">
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
+      </button>
+      <input type="text" placeholder="Поиск" />
+    </div>
+
+    <ng-container *ngTemplateOutlet="filters"></ng-container>
+  </section>
+</div>
+
+<ng-template #filters>
+  <div class="filters">
+    <div class="filters__history">
+      <div class="filters__title">История</div>
+
+      <div class="filters__history-list">
+        <div>закрепить теги</div>
+        <div>кнопка</div>
+        <div>приложение</div>
+        <div>форма</div>
+        <div>текстовое поле</div>
+        <!-- остальные -->
+      </div>
+    </div>
+
+    <div class="filters__form">
+      <label class="field">
+        <span>Автор</span>
+        <div class="field__input">
+          <input type="text" placeholder="Имя или должность" />
+          <button type="button">Я</button>
+        </div>
+      </label>
+
+      <div class="checks checks_top">
+        <label><input type="checkbox" /> <span>Я участник</span></label>
+        <label><input type="checkbox" /> <span>Строгий поиск</span></label>
+        <label><input type="checkbox" /> <span>В заголовках</span></label>
+      </div>
+
+      <div class="only">Только</div>
+
+      <div class="checks">
+        <label><input type="checkbox" /> <span>Теги</span></label>
+        <label><input type="checkbox" /> <span>Просьбы</span></label>
+        <label><input type="checkbox" /> <span>Контакты</span></label>
+      </div>
+    </div>
+  </div>
+</ng-template>
