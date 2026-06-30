@@ -1,6 +1,9 @@
 <div class="page" [class.page_search-open]="isSearchOpen">
   <div class="mock">
     <header class="header">
+      <button class="icon-btn menu-btn" type="button">
+        <fa-icon [icon]="faBars"></fa-icon>
+      </button>
       <a class="logo" href="/">
         <img src="https://tile.expert/img/topMenu/hdLogo.svg?2" alt="Tile Expert" />
       </a>
@@ -19,6 +22,10 @@
         (click)="openSearch(); $event.stopPropagation()"
       >
         <fa-icon [icon]="faSearch"></fa-icon>
+      </button>
+
+      <button class="icon-btn history-btn" type="button">
+        <fa-icon [icon]="faClockRotateLeft"></fa-icon>
       </button>
 
       <button class="icon-btn plus-btn" type="button">

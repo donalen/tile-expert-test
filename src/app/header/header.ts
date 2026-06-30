@@ -11,6 +11,7 @@ import {
   faStar,
   faClockRotateLeft,
   faArrowLeft,
+  faBars,
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -31,6 +32,7 @@ export class Header {
   faStar = faStar;
   faClockRotateLeft = faClockRotateLeft;
   faArrowLeft = faArrowLeft;
+  faBars = faBars;
 
   openSearch(): void {
     this.isSearchOpen = true;
