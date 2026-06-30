@@ -9,11 +9,12 @@
       </a>
 
       <nav class="nav">
-        <a href="#"><fa-icon [icon]="faLink"></fa-icon> Ссылки</a>
-        <a href="#"><fa-icon [icon]="faUsers"></fa-icon> Контакты</a>
-        <a href="#"><fa-icon [icon]="faHashtag"></fa-icon> Теги</a>
-        <a href="#"><fa-icon [icon]="faStar"></fa-icon> Избранное</a>
-        <a href="#"><fa-icon [icon]="faClockRotateLeft"></fa-icon> Посещения</a>
+        @for (item of menuItems; track item.text) {
+          <a href="#">
+            <fa-icon [icon]="item.icon"></fa-icon>
+            {{ item.text }}
+          </a>
+        }
       </nav>
 
       <button
@@ -49,7 +50,7 @@
     </header>
 
     <section class="desktop-filters" *ngIf="isSearchOpen" (click)="$event.stopPropagation()">
-      <ng-container *ngTemplateOutlet="filters"></ng-container>
+      <app-search-filters></app-search-filters>
     </section>
 
     <div *ngIf="isSearchOpen" class="page-overlay" (click)="closeSearch()"></div>
@@ -63,47 +64,6 @@
       <input type="text" placeholder="Поиск" />
     </div>
 
-    <ng-container *ngTemplateOutlet="filters"></ng-container>
+    <app-search-filters></app-search-filters>
   </section>
 </div>
-
-<ng-template #filters>
-  <div class="filters">
-    <div class="filters__history">
-      <div class="filters__title">История</div>
-
-      <div class="filters__history-list">
-        <div>закрепить теги</div>
-        <div>кнопка</div>
-        <div>приложение</div>
-        <div>форма</div>
-        <div>текстовое поле</div>
-        <!-- остальные -->
-      </div>
-    </div>
-
-    <div class="filters__form">
-      <label class="field">
-        <span>Автор</span>
-        <div class="field__input">
-          <input type="text" placeholder="Имя или должность" />
-          <button type="button">Я</button>
-        </div>
-      </label>
-
-      <div class="checks checks_top">
-        <label><input type="checkbox" /> <span>Я участник</span></label>
-        <label><input type="checkbox" /> <span>Строгий поиск</span></label>
-        <label><input type="checkbox" /> <span>В заголовках</span></label>
-      </div>
-
-      <div class="only">Только</div>
-
-      <div class="checks">
-        <label><input type="checkbox" /> <span>Теги</span></label>
-        <label><input type="checkbox" /> <span>Просьбы</span></label>
-        <label><input type="checkbox" /> <span>Контакты</span></label>
-      </div>
-    </div>
-  </div>
-</ng-template>

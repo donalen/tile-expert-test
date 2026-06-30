@@ -1,0 +1,41 @@
+<div class="filters">
+  <div class="filters__history">
+    <div class="filters__title">История</div>
+
+    <div class="filters__history-list">
+      @for (item of history; track item) {
+        <div>{{ item }}</div>
+      }
+    </div>
+  </div>
+
+  <div class="filters__form">
+    <label class="field">
+      <span>Автор</span>
+      <div class="field__input">
+        <input type="text" placeholder="Имя или должность" />
+        <button type="button">Я</button>
+      </div>
+    </label>
+
+    <div class="checks checks_top">
+      @for (item of searchOptions; track item) {
+        <label>
+          <input type="checkbox" />
+          <span>{{ item }}</span>
+        </label>
+      }
+    </div>
+
+    <div class="only">Только</div>
+
+    <div class="checks">
+      @for (item of onlyOptions; track item) {
+        <label>
+          <input type="checkbox" />
+          <span>{{ item }}</span>
+        </label>
+      }
+    </div>
+  </div>
+</div>
